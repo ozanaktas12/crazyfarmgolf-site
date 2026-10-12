@@ -1,0 +1,7 @@
+# Crazy Farm Golf — app-ads.txt (YER TUTUCU, 12 Ekim 2026)
+# AdMob yayıncı kimliği gelince aşağıdaki satırın başındaki "# " kaldırılacak
+# ve pub-XXXXXXXXXXXXXXXX gerçek kimlikle değiştirilecek. Satır biçimi sabittir:
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+#
+# UYARI: AdMob bu dosyayı yalnız ALAN ADININ KÖKÜNDE arar. GitHub Pages proje sitesinde
+# (ozanaktas12.github.io/crazyfarmgolf-site/) bu kopya OKUNMAZ; ayrıntı README.md'de.

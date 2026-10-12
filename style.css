@@ -1,0 +1,171 @@
+/* Crazy Farm Golf — shared styles (Crazy Farm Escape sitesinden uyarlandı).
+   Farm palette: hay gold, barn red, pasture green, weathered wood.
+   No external fonts or assets: the page must render before a slow phone
+   finishes its first paint, because most visitors arrive from a store
+   listing on mobile data. */
+
+:root {
+  --hay:    #f0c419;
+  --hay-dk: #c99f0c;
+  --barn:   #c0432f;
+  --grass:  #6fae3f;
+  --wood:   #8a5a2b;
+  --wood-dk:#5e3d1d;
+  --cream:  #fdfcf8;
+  --card:   #ffffff;
+  --ink:    #22201c;
+  --muted:  #6b675e;
+  --line:   #e6e0cf;
+  --radius: 14px;
+  --shadow: 0 2px 4px rgba(34,32,28,.06), 0 8px 24px rgba(34,32,28,.08);
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cream: #17150f;
+    --card:  #201d16;
+    --ink:   #ece7d8;
+    --muted: #9c968a;
+    --line:  #35301f;
+    --shadow: 0 2px 4px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-text-size-adjust: 100%;
+}
+
+.wrap { max-width: 60rem; margin: 0 auto; padding: 0 1.25rem; }
+.narrow { max-width: 44rem; }
+
+a { color: var(--wood); }
+@media (prefers-color-scheme: dark) { a { color: var(--hay); } }
+
+/* ---- Wooden header band. The plank stripes are gradients, not an image,
+   so the band costs nothing to download and stays crisp on any density. ---- */
+.band {
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(0,0,0,.06) 0 2px, transparent 2px 84px),
+    linear-gradient(180deg, var(--wood) 0%, var(--wood-dk) 100%);
+  color: #fff8e6;
+  border-bottom: 5px solid var(--hay);
+}
+.band a { color: #fff8e6; }
+
+.hero { padding: 3rem 0 3.25rem; text-align: center; }
+.hero img.icon {
+  width: 108px; height: 108px; border-radius: 24px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.35);
+  display: block; margin: 0 auto 1.25rem;
+}
+.hero h1 {
+  font-size: clamp(2rem, 7vw, 3rem);
+  margin: 0 0 .35rem;
+  letter-spacing: -.02em;
+  text-shadow: 0 2px 0 rgba(0,0,0,.25);
+}
+.hero p.tagline {
+  font-size: clamp(1rem, 3.4vw, 1.2rem);
+  margin: 0 auto; max-width: 34rem; opacity: .93;
+}
+.studio {
+  display: inline-block; margin-top: 1.1rem; padding: .25rem .85rem;
+  border: 1px solid rgba(255,248,230,.4); border-radius: 999px;
+  font-size: .82rem; letter-spacing: .06em; text-transform: uppercase;
+}
+
+/* ---- Screenshots ---- */
+.shots {
+  display: grid; gap: .9rem; margin: 2.5rem 0 0;
+  grid-template-columns: repeat(4, 1fr);
+}
+.shots img {
+  width: 100%; height: auto; display: block;
+  border-radius: 10px; border: 3px solid var(--card);
+  box-shadow: var(--shadow);
+}
+@media (max-width: 640px) {
+  .shots { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---- Content ---- */
+section { padding: 3rem 0; }
+h2 {
+  font-size: 1.45rem; margin: 0 0 1.25rem;
+  display: inline-block; padding-bottom: .3rem;
+  border-bottom: 3px solid var(--hay);
+}
+
+.cards { display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 760px) { .cards { grid-template-columns: 1fr; } }
+.card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1.25rem 1.35rem;
+  box-shadow: var(--shadow);
+}
+.card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+.card p { margin: 0; color: var(--muted); }
+
+.btn {
+  display: inline-block; text-decoration: none; font-weight: 600;
+  background: var(--hay); color: #22201c;
+  padding: .7rem 1.4rem; border-radius: 999px;
+  border-bottom: 3px solid var(--hay-dk);
+}
+.btn:hover { filter: brightness(1.05); }
+
+/* ---- Long-form legal / support text ---- */
+article h2 {
+  display: block; font-size: 1.2rem; margin-top: 2.5rem;
+  border-bottom: 2px solid var(--hay); padding-bottom: .3rem;
+}
+article h1 { font-size: 1.9rem; margin-bottom: .25rem; }
+article ul { padding-left: 1.2rem; }
+article li { margin: .35rem 0; }
+.sub { color: var(--muted); margin-top: 0; }
+.date { color: var(--muted); font-size: .92rem; }
+.box {
+  background: var(--card); border-left: 4px solid var(--hay);
+  border-radius: 4px; padding: .9rem 1.1rem; margin: 1.25rem 0;
+  box-shadow: var(--shadow);
+}
+.box ul { margin: .4rem 0; }
+.langbar { margin: 1.5rem 0 0; font-size: .92rem; }
+.langbar a { margin-right: .75rem; }
+.lang-block { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px dashed var(--line); }
+
+/* ---- Footer ---- */
+footer {
+  border-top: 5px solid var(--hay);
+  background: var(--wood-dk); color: #fff8e6;
+  padding: 2rem 0; margin-top: 2rem; font-size: .93rem;
+}
+footer a { color: #fff8e6; }
+footer .row { display: flex; flex-wrap: wrap; gap: 1.25rem; justify-content: space-between; }
+
+/* ---- DİL SEÇİCİ ------------------------------------------------------
+   Apple gizlilik metninin çevrilmesini ZORUNLU tutmuyor; tek adres yeterli.
+   Ama hedef kitle çocuk ve metin veri silme gibi şeyleri anlatıyor — okunması
+   işe yarıyor. Bu yüzden tek adres, çok dilli sayfa: App Store'daki yedi dile
+   de aynı bağlantı yazılıyor, sayfa tarayıcı diline göre açılıyor.
+   ⚠️ JS KAPALIYSA İKİ DİL DE GÖRÜNÜR. Gizleme yalnız JS ile ekleniyor
+   (`js-lang` sınıfı), yani betik çalışmazsa kimse metinsiz kalmıyor —
+   incelemecinin tarayıcısında bir aksilik olursa sayfa yine de tam. */
+.lang-nav { display:flex; gap:.5rem; margin:0 0 1.5rem; flex-wrap:wrap; }
+.lang-nav button {
+  font:inherit; cursor:pointer; padding:.35rem .9rem; border-radius:999px;
+  border:1px solid var(--line); background:transparent; color:inherit;
+}
+.lang-nav button.on { background:var(--line); font-weight:600; }
+.lang-nav button:focus-visible { outline:2px solid currentColor; outline-offset:2px; }
+.js-lang .lang-block { display:none; margin-top:0; padding-top:0; border-top:0; }
+.js-lang .lang-block.on { display:block; }
