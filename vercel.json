@@ -1,0 +1,13 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/privacy-policy", "destination": "/privacy", "permanent": true },
+    { "source": "/gizlilik", "destination": "/privacy", "permanent": true },
+    { "source": "/destek", "destination": "/support", "permanent": true },
+    { "source": "/delete-data", "destination": "/support#delete-data", "permanent": true }
+  ],
+  "headers": [
+    { "source": "/app-ads.txt", "headers": [ { "key": "Content-Type", "value": "text/plain; charset=utf-8" } ] }
+  ]
+}
